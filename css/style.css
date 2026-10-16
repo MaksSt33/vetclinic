@@ -2,7 +2,7 @@
 
 :root {
   --ink: #173b35;
-  --muted: #5d6d65;
+  --muted: #526159;
   --green: #14362f;
   --sage: #dde9df;
   --cream: #fff8ee;
@@ -614,6 +614,10 @@ select {
   padding: 96px 0;
   color: var(--white);
   background: var(--green);
+}
+
+.doctors .eyebrow {
+  color: var(--orange);
 }
 
 .doctors__heading {
