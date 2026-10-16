@@ -1,0 +1,14 @@
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+*.tmp
+.env
+.env.*
+!.env.example
+.lab-research/
+Desktop — 1440.png
+reference-card.png
+preview*.png
+node_modules/
+__pycache__/
