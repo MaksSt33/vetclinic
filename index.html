@@ -11,8 +11,10 @@
     <link rel="icon" href="img/paw.svg" type="image/svg+xml">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
   </head>
   <body id="top">
+    <a class="skip-link" href="#main">Перейти до вмісту</a>
     <!-- Шапка: контактна інформація та основне меню. -->
     <header class="header">
       <div class="header__top">
@@ -34,24 +36,46 @@
           <span class="logo__mark"><img src="img/logo-mark.png" alt="" width="42" height="42"></span>
           Лапка
         </a>
-        <nav class="navigation" aria-label="Основна навігація">
+        <a class="header__phone" href="tel:+380986329710" aria-label="Зателефонувати до клініки">
+          <img src="img/phone.svg" alt="" width="22" height="22">
+        </a>
+        <form class="menu-trigger" action="#site-menu" method="get">
+          <button class="burger" type="submit" aria-label="Відкрити меню" aria-controls="site-menu">
+            <span aria-hidden="true"></span>
+          </button>
+        </form>
+        <nav class="navigation" id="site-menu" aria-label="Основна навігація" tabindex="-1">
+          <form class="menu-close" action="#top" method="get">
+            <button class="burger burger--close" type="submit" aria-label="Закрити меню">
+              <span aria-hidden="true"></span>
+            </button>
+          </form>
           <ul class="menu">
-            <li><a href="#services">Послуги</a></li>
+            <li class="menu__services">
+              <a href="#services">Послуги</a>
+                <ul class="submenu__list">
+                  <li><a href="#services">Усі послуги</a></li>
+                  <li><a href="#therapy">Терапія</a></li>
+                  <li><a href="#surgery">Хірургія</a></li>
+                  <li><a href="#vaccination">Вакцинація</a></li>
+                  <li><a href="#dentistry">Стоматологія</a></li>
+                </ul>
+            </li>
             <li><a href="#doctors">Лікарі</a></li>
             <li><a href="#hospital">Стаціонар</a></li>
             <li><a href="#contacts">Контакти</a></li>
           </ul>
         </nav>
-        <a class="btn" href="#appointment">Записатися</a>
+        <a class="btn header__booking" href="#appointment">Записатися</a>
       </div>
     </header>
-    <main>
+    <main id="main" tabindex="-1">
       <!-- Перший екран: текст, статистика, фото та швидкий запис. -->
       <section class="hero" aria-labelledby="hero-title">
         <div class="container hero__inner">
           <div class="hero__content">
             <p class="hero__badge">Сучасна ветеринарія з турботою</p>
-            <h1 id="hero-title">Турбота, яку ваш<br>улюбленець<br>відчує</h1>
+            <h1 id="hero-title">Турбота, яку ваш улюбленець відчує</h1>
             <p class="hero__description">
               Дбайлива доказова медицина, уважні лікарі та спокійна атмосфера — від першого огляду до повного одужання.
             </p>
@@ -139,12 +163,12 @@
           <div class="section-heading">
             <hgroup>
               <p class="eyebrow">Усе для здоров’я</p>
-              <h2 id="services-title">Допомагаємо на кожному етапі<br>життя</h2>
+              <h2 id="services-title">Допомагаємо на кожному етапі життя</h2>
             </hgroup>
             <a class="text-link" href="#service-cards">Усі послуги<span aria-hidden="true">→</span></a>
           </div>
           <div class="services__cards" id="service-cards">
-            <article class="service-card">
+            <article class="service-card" id="therapy">
               <span class="service-card__icon">
                 <img src="img/service-therapy.png" alt="" width="58" height="58">
               </span>
@@ -152,7 +176,7 @@
               <p>Огляд, діагностика та персональний план лікування.</p>
               <a class="text-link" href="#appointment">Докладніше<span aria-hidden="true">→</span></a>
             </article>
-            <article class="service-card service-card--accent">
+            <article class="service-card service-card--accent" id="surgery">
               <span class="service-card__icon">
                 <img src="img/service-surgery.png" alt="" width="58" height="58">
               </span>
