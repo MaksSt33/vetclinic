@@ -1,0 +1,870 @@
+/* 1. Базові стилі та кольори макета. */
+
+:root {
+  --ink: #173b35;
+  --muted: #66766f;
+  --green: #14362f;
+  --sage: #dde9df;
+  --cream: #fff8ee;
+  --soft: #f7f5ef;
+  --booking-bg: #f7f1ef;
+  --orange: #f2a45e;
+  --orange-dark: #d97935;
+  --red: #b94b3f;
+  --white: #fff;
+  --link: #2e6658;
+  --logo-green: #2e6658;
+  --header-line: #e7ded0;
+  --contact-icon: #5a9385;
+  --checkmark: #79a393;
+  --emergency-muted: #e8b7a5;
+  --service-icon: #679b8b;
+  --team-muted: rgb(255 255 255 / 71%);
+  --team-role: #f2a45e;
+  --footer-muted: rgb(255 255 255 / 66%);
+  --footer-line: rgb(255 255 255 / 12%);
+  --gap: 24px;
+  --shadow: 0 16px 28px rgb(30 48 38 / 7%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 1100px;
+  font-family: 'Inter', sans-serif;
+  color: var(--ink);
+  background: var(--cream);
+}
+
+h1,
+h2,
+h3,
+hgroup,
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: 40px;
+  line-height: 1.375;
+  font-weight: 800;
+}
+
+h3 {
+  font-size: 24px;
+  line-height: 1.3;
+}
+
+p {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button,
+select {
+  cursor: pointer;
+}
+
+address {
+  font-style: normal;
+}
+
+section,
+footer,
+#booking-form {
+  scroll-margin-top: 24px;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--orange-dark);
+  outline-offset: 5px;
+}
+
+.container {
+  max-width: 1296px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* 2. Повторювані елементи. */
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 54px;
+  padding: 0 26px;
+  border: 1px solid transparent;
+  border-radius: 30px;
+  background: var(--orange);
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+  transition: background .2s ease;
+}
+
+.btn:hover {
+  background: var(--orange-dark);
+}
+
+.btn--outline {
+  border-color: var(--ink);
+  background: var(--white);
+}
+
+.btn--outline:hover {
+  background: var(--sage);
+}
+
+.text-link {
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 700;
+  color: var(--link);
+}
+
+.text-link:hover,
+.menu a:hover {
+  color: var(--orange-dark);
+}
+
+.eyebrow {
+  margin-bottom: 10px;
+  color: var(--orange-dark);
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 16px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 44px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.logo__mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--logo-green);
+}
+
+/* 3. Шапка: обидва ряди побудовані на Flexbox. */
+.header__top {
+  background: var(--white);
+  border-bottom: 1px solid var(--header-line);
+}
+
+.header__contacts {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 64px;
+}
+
+.contact-list {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.contact-list li,
+.contact-list a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.social-list {
+  display: flex;
+  gap: 12px;
+}
+
+.social-list a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--soft);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  min-height: 88px;
+}
+
+.navigation {
+  margin-left: auto;
+}
+
+.menu {
+  display: flex;
+  gap: 32px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* 4. Перший екран. Absolute потрібен лише для панелей поверх фото. */
+.hero__inner {
+  display: flex;
+  align-items: center;
+  gap: 68px;
+  max-width: 1300px;
+  min-height: 800px;
+  padding-top: 54px;
+  padding-bottom: 54px;
+}
+
+.hero__content {
+  display: flex;
+  flex: 1 1 530px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  min-width: 0;
+  min-height: 626px;
+}
+
+.hero__badge {
+  display: inline-block;
+  padding: 7px 14px;
+  margin-bottom: 0;
+  border-radius: 30px;
+  background: var(--sage);
+  color: var(--link);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 18px;
+}
+
+h1 {
+  min-height: 174px;
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1.03;
+  letter-spacing: -1.2px;
+}
+
+.hero__description {
+  max-width: 475px;
+  font-size: 20px;
+  line-height: 1.55;
+}
+
+.hero__benefits {
+  display: flex;
+  gap: 24px;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 700;
+}
+
+.hero__benefits li::before {
+  content: '✓';
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  margin-right: 7px;
+  border: 1px solid var(--checkmark);
+  border-radius: 50%;
+  color: var(--checkmark);
+  font-size: 11px;
+}
+
+.hero__actions {
+  display: flex;
+  gap: 16px;
+}
+
+.statistics {
+  display: flex;
+  gap: 12px;
+  width: 520px;
+  max-width: 100%;
+}
+
+.statistics__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 0 1 174px;
+  gap: 6px;
+  padding: 16px;
+  min-height: 92px;
+  border-radius: 20px;
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.statistics__item span {
+  font-size: 13px;
+  line-height: 16px;
+  color: var(--muted);
+}
+
+.statistics__item:first-child {
+  flex-basis: 146px;
+}
+
+.statistics__item:nth-child(2) {
+  flex-basis: 176px;
+}
+
+.statistics__item strong {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 38px;
+  white-space: nowrap;
+}
+
+.hero__visual {
+  position: relative;
+  flex: 0 1 654px;
+  min-width: 0;
+  height: 692px;
+}
+
+.hero__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 32px;
+}
+
+.service-picker {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  width: 280px;
+  min-height: 150px;
+  padding: 20px;
+  border-radius: 22px;
+  background: var(--white);
+}
+
+.service-picker__title {
+  margin-bottom: 14px;
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+.service-picker__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.service-picker__link {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 24px;
+  background: var(--soft);
+  font-size: 13px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.service-picker__link--active,
+.service-picker__link:hover {
+  background: var(--orange);
+}
+
+.quick-booking {
+  position: absolute;
+  right: 19px;
+  bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 340px;
+  min-height: 332px;
+  padding: 22px 22px 12px;
+  border-radius: 20px;
+  background: var(--white);
+}
+
+.quick-booking h2 {
+  font-size: 24px;
+  line-height: 31px;
+}
+
+.quick-booking p {
+  font-size: 12px;
+  line-height: 15px;
+}
+
+input,
+select {
+  width: 100%;
+  min-width: 0;
+  height: 54px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 14px;
+  color: var(--ink);
+  background: var(--soft);
+  font-size: 14px;
+}
+
+input::placeholder,
+select:invalid {
+  color: var(--muted);
+  opacity: 1;
+}
+
+select {
+  appearance: none;
+}
+
+.quick-booking input,
+.quick-booking select {
+  height: 46px;
+  border-radius: 12px;
+}
+
+.quick-booking .btn {
+  align-self: flex-start;
+}
+
+/* 5. Термінова допомога та картки послуг. */
+.emergency {
+  color: var(--white);
+  background: var(--red);
+}
+
+.emergency__inner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 77px;
+}
+
+.emergency__icon {
+  font-size: 30px;
+  color: var(--emergency-muted);
+}
+
+.emergency h2 {
+  font-size: 22px;
+}
+
+.emergency p {
+  font-size: 16px;
+  color: var(--emergency-muted);
+}
+
+.emergency a {
+  margin-left: auto;
+  font-size: 24px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.services {
+  padding: 96px 0;
+  background: var(--soft);
+}
+
+.services__cards {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+}
+
+.service-card {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 310px;
+  gap: 20px;
+  padding: 28px;
+  border-radius: 20px;
+  background: var(--white);
+}
+
+.service-card--accent {
+  background: var(--sage);
+}
+
+.service-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  color: var(--service-icon);
+  background: var(--cream);
+  font-size: 32px;
+}
+
+.service-card--accent .service-card__icon {
+  background: var(--white);
+}
+
+.service-card h3 {
+  font-size: 22px;
+  line-height: 30px;
+}
+
+.service-card p {
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.service-card .text-link {
+  margin-top: 0;
+}
+
+/* 6. Команда. */
+.doctors {
+  padding: 96px 0;
+  color: var(--white);
+  background: var(--green);
+}
+
+.doctors__heading {
+  align-items: flex-end;
+  min-height: 81px;
+  margin-bottom: 42px;
+}
+
+.doctors__description {
+  flex: 0 0 340px;
+  color: var(--team-muted);
+  font-size: 17px;
+  line-height: 1.45;
+}
+
+.doctors__cards {
+  display: flex;
+  gap: 22px;
+}
+
+.doctor-card {
+  flex: 1;
+  min-width: 0;
+}
+
+.doctor-card img {
+  width: 100%;
+  height: 390px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.doctor-card h3 {
+  margin-top: 16px;
+  font-size: 23px;
+  line-height: 31px;
+}
+
+.doctor-card p {
+  margin-top: 16px;
+  color: var(--team-role);
+  font-size: 14px;
+  line-height: 17px;
+}
+
+/* 7. Відгуки. */
+.testimonials {
+  padding: 93px 0;
+}
+
+.testimonials > .container > .eyebrow {
+  margin-bottom: 40px;
+  line-height: 19px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.testimonials h2 {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.testimonials__cards {
+  display: flex;
+  gap: 22px;
+  align-items: stretch;
+}
+
+.review-card {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 268px;
+  padding: 32px;
+  border-radius: 24px;
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.review-card__stars {
+  margin-bottom: 22px;
+  color: var(--orange-dark);
+  font-size: 21px;
+  line-height: 22px;
+  letter-spacing: 2px;
+}
+
+.review-card blockquote {
+  margin: 0 0 22px;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 21px;
+  line-height: 32px;
+  font-weight: 600;
+}
+
+.review-card__author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto;
+  font-size: 14px;
+}
+
+.review-card__avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--orange);
+}
+
+.review-card__avatar--sage {
+  background: var(--sage);
+}
+
+/* 8. Запис: дві пари колонок на Flexbox. */
+.appointment {
+  padding: 76px 0;
+  background: var(--booking-bg);
+}
+
+.appointment__intro {
+  display: flex;
+  align-items: center;
+  gap: 56px;
+  margin-bottom: 76px;
+}
+
+.appointment__intro > img {
+  flex: 0 0 498px;
+  width: 498px;
+  height: 332px;
+  object-fit: cover;
+  border-radius: 38px;
+}
+
+.appointment__message {
+  flex: 1;
+}
+
+.appointment__message h2 {
+  line-height: 1.12;
+}
+
+.appointment__message p {
+  max-width: 530px;
+  margin: 16px 0 20px;
+  font-size: 18px;
+}
+
+.appointment__inner {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.appointment__description {
+  flex: 0 0 420px;
+}
+
+.appointment__description h2 {
+  font-size: 36px;
+  margin-bottom: 18px;
+}
+
+.appointment__description p {
+  max-width: 420px;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.booking-form {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 20px;
+  padding: 32px 32px 24px;
+  border-radius: 24px;
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.booking-form .btn {
+  align-self: flex-start;
+}
+
+/* 9. Підвал. */
+.footer {
+  padding: 34px 0;
+  color: var(--white);
+  background: var(--green);
+}
+
+.footer__columns {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  min-height: 104px;
+  margin-bottom: 48px;
+}
+
+.footer__brand {
+  flex: 0 0 300px;
+}
+
+.footer__column {
+  flex: 0 0 239px;
+}
+
+.logo--footer .logo__mark {
+  background: var(--orange);
+}
+
+.footer__brand p {
+  max-width: 300px;
+  margin-top: 20px;
+}
+
+.footer__column h2 {
+  margin-bottom: 12px;
+  font-size: 17px;
+  line-height: 23px;
+}
+
+.footer p,
+.footer address {
+  color: var(--footer-muted);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.footer__column address {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer__column > p + p {
+  margin-top: 8px;
+}
+
+.footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding-top: 48px;
+  min-height: 64px;
+  border-top: 1px solid var(--footer-line);
+  color: var(--footer-muted);
+}
+
+.footer__bottom p,
+.footer__bottom ul {
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.footer__bottom ul {
+  display: flex;
+  gap: 5px;
+}
+
+.footer a:hover {
+  color: var(--orange);
+}
