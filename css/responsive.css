@@ -276,6 +276,7 @@
     background: var(--cream);
     box-shadow: var(--shadow);
     visibility: hidden;
+    scroll-margin-top: 96px;
   }
 
   /* Кнопки надсилають порожню GET-форму до якоря. :target зберігає
@@ -368,6 +369,7 @@
   }
 
   .testimonials__cards,
+  .pricing__cards,
   .appointment__intro,
   .appointment__inner {
     flex-direction: column;
@@ -407,7 +409,8 @@
   }
 
   .header__top {
-    padding: 0;
+    /* Ці самі контакти й соціальні посилання доступні в підвалі. */
+    display: none;
   }
 
   .header__contacts {
@@ -449,7 +452,46 @@
   }
 
   .hero__content {
-    gap: 20px;
+    display: contents;
+  }
+
+  .hero__inner {
+    gap: 24px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .hero__badge {
+    order: 1;
+    align-self: flex-start;
+  }
+
+  .hero h1 {
+    order: 2;
+  }
+
+  .hero__description {
+    order: 3;
+  }
+
+  .hero__actions {
+    order: 4;
+  }
+
+  .hero__visual {
+    order: 5;
+  }
+
+  .hero__benefits {
+    order: 6;
+  }
+
+  .statistics {
+    order: 7;
+  }
+
+  .hero__actions .btn--outline {
+    display: none;
   }
 
   h1 {
@@ -491,8 +533,16 @@
   .statistics__item,
   .statistics__item:first-child,
   .statistics__item:nth-child(2) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     flex: 1 1 100%;
-    min-height: 76px;
+    min-height: 56px;
+    padding: 12px 16px;
+  }
+
+  .statistics__item span {
+    font-size: 16px;
   }
 
   .hero__visual {
@@ -508,6 +558,18 @@
     border-radius: 24px;
   }
 
+  .hero__picture {
+    height: auto;
+  }
+
+  .media-copy > p:not(.eyebrow) {
+    font-size: 16px;
+  }
+
+  .media-toggle {
+    width: 100%;
+  }
+
   .service-picker,
   .quick-booking {
     position: static;
@@ -515,6 +577,12 @@
     min-height: 0;
     padding: 24px;
     border-radius: 20px;
+  }
+
+  .hero__visual .service-picker,
+  .hero__visual .quick-booking {
+    /* Послуги є в меню, а всі поля — у головній формі запису. */
+    display: none;
   }
 
   .service-picker__link {
@@ -651,6 +719,69 @@
 
   .booking-form {
     padding: 24px;
+  }
+
+  .form-field {
+    flex-basis: 100%;
+  }
+
+  .form-field small,
+  .form-note,
+  .privacy p,
+  .quick-booking__consent {
+    font-size: 16px;
+  }
+
+  .schedule {
+    padding: 48px 0;
+  }
+
+  .pricing {
+    padding: 48px 0;
+  }
+
+  .price-card {
+    padding: 24px;
+  }
+
+  .service-card {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 16px;
+  }
+
+  .service-card__body {
+    flex: 1;
+    min-width: 0;
+    gap: 6px;
+  }
+
+  .service-card h3 {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+
+  .service-card__icon,
+  .service-card__icon img {
+    width: 44px;
+    height: 44px;
+  }
+
+  .service-card .text-link {
+    flex: 0 0 44px;
+    justify-content: center;
+    margin: 0;
+    font-size: 24px;
+  }
+
+  .service-card__link-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
   }
 
   .footer__columns {

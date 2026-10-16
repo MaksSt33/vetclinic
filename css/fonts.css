@@ -3,7 +3,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(../fonts/inter-regular.ttf) format('truetype');
+  src: url(../fonts/inter-regular.woff2) format('woff2');
 }
 
 @font-face {
@@ -11,7 +11,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url(../fonts/inter-medium.ttf) format('truetype');
+  src: url(../fonts/inter-medium.woff2) format('woff2');
 }
 
 @font-face {
@@ -19,7 +19,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url(../fonts/inter-semibold.ttf) format('truetype');
+  src: url(../fonts/inter-semibold.woff2) format('woff2');
 }
 
 @font-face {
@@ -27,7 +27,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url(../fonts/inter-bold.ttf) format('truetype');
+  src: url(../fonts/inter-bold.woff2) format('woff2');
 }
 
 @font-face {
@@ -35,7 +35,7 @@
   font-style: normal;
   font-weight: 800;
   font-display: swap;
-  src: url(../fonts/inter-extrabold.ttf) format('truetype');
+  src: url(../fonts/inter-extrabold.woff2) format('woff2');
 }
 
 @font-face {
@@ -44,7 +44,7 @@
   font-weight: 700;
   font-stretch: normal;
   font-display: swap;
-  src: url(../fonts/nunito-sans-bold.ttf) format('truetype');
+  src: url(../fonts/nunito-sans-bold.woff2) format('woff2');
 }
 
 @font-face {
@@ -53,7 +53,7 @@
   font-weight: 800;
   font-stretch: normal;
   font-display: swap;
-  src: url(../fonts/nunito-sans-extrabold.ttf) format('truetype');
+  src: url(../fonts/nunito-sans-extrabold.woff2) format('woff2');
 }
 
 @font-face {
@@ -62,5 +62,5 @@
   font-weight: 600;
   font-stretch: normal;
   font-display: swap;
-  src: url(../fonts/nunito-sans-600.ttf) format('truetype');
+  src: url(../fonts/nunito-sans-600.woff2) format('woff2');
 }

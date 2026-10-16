@@ -1,0 +1,342 @@
+/* Форми та таблиця — модуль 05. */
+
+:root {
+  --radius-card: 24px;
+  --radius-field: 14px;
+  --space-small: 12px;
+  --space-medium: 24px;
+  --space-large: 48px;
+}
+
+article[id],
+.privacy {
+  scroll-margin-top: 24px;
+}
+
+.quick-booking__fields,
+.form-fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.quick-booking__fields {
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-fields legend {
+  margin-bottom: 20px;
+  padding: 0;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.booking-form {
+  gap: 28px;
+  min-width: 0;
+  padding: 32px;
+}
+
+.form-field {
+  display: flex;
+  flex: 1 1 calc(50% - 10px);
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+.form-field--full {
+  flex-basis: 100%;
+}
+
+.form-field label {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.form-field small,
+.form-note {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+textarea {
+  width: 100%;
+  min-height: 128px;
+  padding: 16px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-field);
+  color: var(--ink);
+  background: var(--soft);
+  font: inherit;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+textarea:focus-visible,
+.table-scroll:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--orange-dark);
+  outline-offset: 5px;
+}
+
+select {
+  appearance: auto;
+}
+
+.choice {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-height: 44px;
+  padding: 10px 0;
+  font-size: 16px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.choice input {
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+  margin: 2px 0 0;
+  padding: 0;
+  accent-color: var(--green);
+}
+
+.quick-booking__consent {
+  padding: 4px 0;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.choice a,
+.privacy a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+input:user-invalid,
+select:user-invalid,
+textarea:user-invalid {
+  outline: 2px solid var(--red);
+  outline-offset: 2px;
+}
+
+.choice input:user-invalid {
+  outline-offset: 3px;
+}
+
+.schedule {
+  padding: 80px 0;
+  background: var(--soft);
+}
+
+.content-heading {
+  max-width: 760px;
+  margin-bottom: 32px;
+}
+
+.content-heading > p:last-child {
+  margin-top: 16px;
+  font-size: 18px;
+}
+
+.table-hint {
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--header-line);
+  border-radius: var(--radius-card);
+  background: var(--white);
+}
+
+.schedule-table {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.schedule-table caption {
+  padding: 24px;
+  color: var(--ink);
+  font-size: 18px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.schedule-table th,
+.schedule-table td {
+  padding: 16px 24px;
+  border-top: 1px solid var(--header-line);
+  vertical-align: middle;
+}
+
+.schedule-table thead {
+  background: var(--sage);
+}
+
+.schedule-table tbody tr:nth-child(even) {
+  background: var(--soft);
+}
+
+.schedule-table .text-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+.privacy {
+  max-width: 900px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--footer-line);
+}
+
+.privacy h2 {
+  margin-bottom: 12px;
+  font-size: 20px;
+}
+
+.privacy p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Модуль 06. Базова картка та її рекомендований варіант. */
+
+.service-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.service-card .text-link {
+  gap: 6px;
+  margin-top: auto;
+}
+
+.pricing {
+  padding: 80px 0;
+  background: var(--cream);
+}
+
+.pricing__cards {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-medium);
+}
+
+.price-card {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-medium);
+  min-width: 0;
+  padding: 32px;
+  border: 2px solid var(--header-line);
+  border-radius: var(--radius-card);
+  background: var(--white);
+}
+
+.price-card:hover,
+.price-card:focus-within {
+  background: var(--soft);
+}
+
+.price-card--recommended {
+  border-color: var(--green);
+  background: var(--sage);
+}
+
+.price-card--recommended:hover,
+.price-card--recommended:focus-within {
+  background: #cbded0;
+}
+
+.price-card__badge {
+  padding: 8px 16px;
+  border-radius: 999px;
+  color: var(--white);
+  background: var(--green);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.price-card__badge--neutral {
+  color: var(--ink);
+  background: var(--soft);
+}
+
+.price-card h3 {
+  font-size: 30px;
+}
+
+.price-card__description {
+  font-size: 16px;
+}
+
+.price-card__price {
+  color: var(--ink);
+  font-size: 20px;
+  white-space: nowrap;
+}
+
+.price-card__price strong {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.price-card__features {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-small);
+  margin-bottom: 8px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.price-card__features li {
+  position: relative;
+  padding-left: 24px;
+}
+
+.price-card__features li::before {
+  position: absolute;
+  left: 0;
+  content: '✓';
+  color: var(--link);
+  font-weight: 700;
+}
+
+.price-card > .btn {
+  width: 100%;
+  margin-top: auto;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+  transform: none;
+}
