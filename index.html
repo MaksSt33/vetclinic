@@ -11,7 +11,10 @@
     <link rel="icon" href="img/paw.svg" type="image/svg+xml">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+    <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/motion.css">
   </head>
   <body id="top">
     <a class="skip-link" href="#main">Перейти до вмісту</a>
@@ -62,6 +65,7 @@
                 </ul>
             </li>
             <li><a href="#doctors">Лікарі</a></li>
+            <li><a href="#pricing">Пакети</a></li>
             <li><a href="#hospital">Стаціонар</a></li>
             <li><a href="#contacts">Контакти</a></li>
           </ul>
@@ -95,13 +99,18 @@
             </ul>
           </div>
           <div class="hero__visual">
-            <img
+            <picture class="hero__picture">
+              <source media="(max-width: 600px)" srcset="img/hero-dog-mobile.webp">
+              <img
               class="hero__photo"
-              src="img/hero-dog.png"
+              src="img/hero-dog.webp"
               alt="Чихуахуа на огляді у ветеринарній клініці"
-              width="654"
-              height="692"
-            >
+              width="1308"
+              height="1384"
+              fetchpriority="high"
+              decoding="async"
+              >
+            </picture>
             <nav class="service-picker" aria-label="Швидкий вибір послуги">
               <h2 class="service-picker__title">Швидкий вибір послуги</h2>
               <ul class="service-picker__list">
@@ -115,9 +124,12 @@
                 <li><a class="service-picker__link" href="#hospital">Стаціонар</a></li>
               </ul>
             </nav>
-            <form class="quick-booking" aria-labelledby="quick-title">
+            <form class="quick-booking" action="https://formspree.io/f/xnpjllab" method="post" aria-labelledby="quick-title">
               <h2 id="quick-title">Швидкий запис</h2>
-              <p>Зателефонуємо протягом 10 хвилин</p>
+              <p>Навчальна заявка автору проєкту</p>
+              <input type="hidden" name="_subject" value="Лапка — швидка навчальна заявка">
+              <fieldset class="quick-booking__fields">
+                <legend class="visually-hidden">Контакти та послуга</legend>
               <label class="visually-hidden" for="quick-name">Ваше ім’я</label>
               <input
                 id="quick-name"
@@ -125,6 +137,8 @@
                 type="text"
                 placeholder="Ваше ім’я"
                 autocomplete="given-name"
+                minlength="2"
+                maxlength="80"
                 required
               >
               <label class="visually-hidden" for="quick-phone">Номер телефону</label>
@@ -134,6 +148,8 @@
                 type="tel"
                 placeholder="Номер телефону"
                 autocomplete="tel"
+                pattern="\+?[0-9]{9,15}"
+                title="Від 9 до 15 цифр, можна почати з +. Наприклад, +380981234567."
                 required
               >
               <label class="visually-hidden" for="quick-service">Оберіть послугу</label>
@@ -144,7 +160,16 @@
                 <option>Стоматологія</option>
                 <option>Стаціонар</option>
               </select>
-              <button class="btn" type="button">Записатися</button>
+              </fieldset>
+              <label class="choice quick-booking__consent" for="quick-consent">
+                <input id="quick-consent" name="consent" type="checkbox" value="yes" required>
+                <span>Погоджуюся з <a href="#privacy">умовами обробки даних</a>.</span>
+              </label>
+              <div class="visually-hidden" aria-hidden="true">
+                <label for="quick-gotcha">Залиште це поле порожнім</label>
+                <input id="quick-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+              </div>
+              <button class="btn" type="submit">Надіслати заявку</button>
             </form>
           </div>
         </div>
@@ -172,30 +197,49 @@
               <span class="service-card__icon">
                 <img src="img/service-therapy.png" alt="" width="58" height="58">
               </span>
-              <h3>Терапія</h3>
-              <p>Огляд, діагностика та персональний план лікування.</p>
-              <a class="text-link" href="#appointment">Докладніше<span aria-hidden="true">→</span></a>
+              <div class="service-card__body">
+                <h3>Терапія</h3>
+                <p>Огляд, діагностика та персональний план лікування.</p>
+              </div>
+              <a class="text-link" href="#appointment" aria-label="Дізнатися більше про терапію"><span class="service-card__link-label">Докладніше</span><span aria-hidden="true">→</span></a>
             </article>
             <article class="service-card service-card--accent" id="surgery">
               <span class="service-card__icon">
                 <img src="img/service-surgery.png" alt="" width="58" height="58">
               </span>
-              <h3>Хірургія</h3>
-              <p>Безпечні операції та турботливе відновлення.</p>
-              <a class="text-link" href="#appointment">Докладніше<span aria-hidden="true">→</span></a>
+              <div class="service-card__body">
+                <h3>Хірургія</h3>
+                <p>Безпечні операції та турботливе відновлення.</p>
+              </div>
+              <a class="text-link" href="#appointment" aria-label="Дізнатися більше про хірургію"><span class="service-card__link-label">Докладніше</span><span aria-hidden="true">→</span></a>
             </article>
             <article class="service-card" id="vaccination">
               <span class="service-card__icon"><img src="img/service-vaccination.png" alt="" width="58" height="58"></span>
-              <h3>Вакцинація</h3>
-              <p>Надійний захист за індивідуальним графіком.</p>
-              <a class="text-link" href="#appointment">Докладніше<span aria-hidden="true">→</span></a>
+              <div class="service-card__body">
+                <h3>Вакцинація</h3>
+                <p>Надійний захист за індивідуальним графіком.</p>
+              </div>
+              <a class="text-link" href="#appointment" aria-label="Дізнатися більше про вакцинацію"><span class="service-card__link-label">Докладніше</span><span aria-hidden="true">→</span></a>
             </article>
             <article class="service-card" id="dentistry">
               <span class="service-card__icon"><img src="img/service-dentistry.png" alt="" width="58" height="58"></span>
-              <h3>Стоматологія</h3>
-              <p>Здорові зуби й комфорт без болю.</p>
-              <a class="text-link" href="#appointment">Докладніше<span aria-hidden="true">→</span></a>
+              <div class="service-card__body">
+                <h3>Стоматологія</h3>
+                <p>Здорові зуби й комфорт без болю.</p>
+              </div>
+              <a class="text-link" href="#appointment" aria-label="Дізнатися більше про стоматологію"><span class="service-card__link-label">Докладніше</span><span aria-hidden="true">→</span></a>
             </article>
+          </div>
+        </div>
+      </section>
+      <!-- Модуль 04: фонове фото не містить важливого тексту. -->
+      <section class="photo-banner" id="care" aria-labelledby="care-title" tabindex="-1">
+        <div class="container">
+          <div class="media-copy">
+            <p class="eyebrow">Турбота починається зі знайомства</p>
+            <h2 id="care-title">Спокійний прийом для вас і вашого друга</h2>
+            <p>Час на знайомство, зрозумілі пояснення та увага до кожної деталі — саме так ми уявляємо сучасну ветеринарію.</p>
+            <a class="btn" href="#appointment">Підготуватися до візиту</a>
           </div>
         </div>
       </section>
@@ -214,34 +258,53 @@
           <div class="doctors__cards">
             <article class="doctor-card">
               <img
-                src="img/doctor-koval.png"
+                src="img/doctor-koval.webp"
                 alt="Ветеринарна терапевтка Олена Коваль"
-                width="401"
-                height="390"
-              >
+                width="802"
+                height="780"
+               loading="lazy" decoding="async">
               <h3>Олена Коваль</h3>
               <p>Ветеринарна терапевтка</p>
             </article>
             <article class="doctor-card">
               <img
-                src="img/doctor-melnyk.png"
+                src="img/doctor-melnyk.webp"
                 alt="Хірург Андрій Мельник із собакою"
-                width="401"
-                height="390"
-              >
+                width="803"
+                height="780"
+               loading="lazy" decoding="async">
               <h3>Андрій Мельник</h3>
               <p>Хірург, ортопед</p>
             </article>
             <article class="doctor-card">
               <img
-                src="img/doctor-bondar.png"
+                src="img/doctor-bondar.webp"
                 alt="Стоматолог Анатолій Бондар із рудим котом"
-                width="401"
-                height="390"
-              >
+                width="802"
+                height="780"
+               loading="lazy" decoding="async">
               <h3>Анатолій Бондар</h3>
               <p>Стоматолог</p>
             </article>
+          </div>
+        </div>
+      </section>
+      <!-- Модуль 04: декоративне відео; весь зміст доступний у тексті. -->
+      <section class="video-banner" id="clinic-video" aria-labelledby="video-title" tabindex="-1">
+        <input class="visually-hidden video-motion" id="video-motion" type="checkbox" checked aria-label="Показувати рухомий відеофон">
+        <video class="video-banner__video" autoplay muted loop playsinline preload="none" poster="img/vet-video-poster.webp" aria-hidden="true" tabindex="-1">
+          <source src="video/vet-care.mp4" type="video/mp4" media="(prefers-reduced-motion: no-preference)">
+        </video>
+        <div class="container video-banner__content">
+          <div class="media-copy">
+            <p class="eyebrow">Уважність у кожному русі</p>
+            <h2 id="video-title">Поруч, коли потрібна підтримка</h2>
+            <p>Ветеринарний огляд — це і професійність, і довіра. Відео показує приклад дбайливого поводження з твариною.</p>
+            <p class="media-credit">Ілюстративне відео Mikhail Nilov / Pexels. Не зйомка клініки «Лапка».</p>
+            <label class="media-toggle" for="video-motion">
+              <span class="media-toggle__stop">Зупинити відеофон</span>
+              <span class="media-toggle__play">Увімкнути відеофон</span>
+            </label>
           </div>
         </div>
       </section>
@@ -274,18 +337,94 @@
           </div>
         </div>
       </section>
+      <!-- Модуль 06: три повторювані компоненти з демонстраційними цінами. -->
+      <section class="pricing" id="pricing" aria-labelledby="pricing-title" tabindex="-1">
+        <div class="container">
+          <hgroup class="content-heading">
+            <p class="eyebrow">Зрозумілі формати турботи</p>
+            <h2 id="pricing-title">Оберіть свій пакет</h2>
+            <p>Демонстраційні ціни навчального проєкту. Це приклади для лабораторної роботи, а не прайс реальної клініки.</p>
+          </hgroup>
+          <div class="pricing__cards">
+            <article class="price-card price-card--recommended">
+              <span class="price-card__badge">Рекомендований</span>
+              <h3>Турбота</h3>
+              <p class="price-card__description">Більше часу для знайомства та відповідей на запитання.</p>
+              <p class="price-card__price"><strong>900</strong> грн</p>
+              <ul class="price-card__features">
+                <li>Первинна консультація</li>
+                <li>Огляд у навчальному сценарії</li>
+                <li>Пояснення подальших кроків</li>
+                <li>Пам’ятка після візиту</li>
+              </ul>
+              <a class="btn" href="#booking-form" aria-label="Перейти до форми для пакета Турбота">Обрати «Турботу»</a>
+            </article>
+            <article class="price-card">
+              <span class="price-card__badge price-card__badge--neutral">Перший крок</span>
+              <h3>Знайомство</h3>
+              <p class="price-card__description">Короткий перший візит, щоб познайомитися з командою.</p>
+              <p class="price-card__price"><strong>500</strong> грн</p>
+              <ul class="price-card__features">
+                <li>Одна первинна консультація</li>
+                <li>Огляд без додаткових процедур</li>
+                <li>Відповіді на запитання</li>
+              </ul>
+              <a class="btn btn--outline" href="#booking-form" aria-label="Перейти до форми для пакета Знайомство">Обрати «Знайомство»</a>
+            </article>
+            <article class="price-card">
+              <span class="price-card__badge price-card__badge--neutral">Наступний крок</span>
+              <h3>Разом</h3>
+              <p class="price-card__description">Приклад пакета з первинним і повторним зверненням.</p>
+              <p class="price-card__price"><strong>1500</strong> грн</p>
+              <ul class="price-card__features">
+                <li>Дві консультації</li>
+                <li>Повторна розмова після огляду</li>
+                <li>Пам’ятка з догляду</li>
+                <li>Узгодження наступного візиту</li>
+              </ul>
+              <a class="btn btn--outline" href="#booking-form" aria-label="Перейти до форми для пакета Разом">Обрати «Разом»</a>
+            </article>
+          </div>
+        </div>
+      </section>
+      <!-- Модуль 05: таблиця даних, а не засіб розкладки. -->
+      <section class="schedule" id="schedule" aria-labelledby="schedule-title" tabindex="-1">
+        <div class="container">
+          <hgroup class="content-heading">
+            <p class="eyebrow">Плануйте зручно</p>
+            <h2 id="schedule-title">Коли звертатися до клініки</h2>
+            <p>Планові прийоми — за попереднім записом. За невідкладної потреби спочатку зателефонуйте.</p>
+          </hgroup>
+          <p class="table-hint" id="table-hint">На вузькому екрані таблицю можна гортати вбік.</p>
+          <div class="table-scroll" role="region" aria-labelledby="schedule-caption" aria-describedby="table-hint" tabindex="0">
+            <table class="schedule-table">
+              <caption id="schedule-caption">Напрями та формат прийому в навчальному макеті</caption>
+              <thead>
+                <tr><th scope="col">Напрям</th><th scope="col">Доступність</th><th scope="col">Формат</th><th scope="col">Наступний крок</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Терапія</th><td>Щодня, 08:00–21:00</td><td>За записом</td><td><a class="text-link" href="#appointment">Залишити заявку</a></td></tr>
+                <tr><th scope="row">Хірургія</th><td>Час узгоджується</td><td>Попередня консультація</td><td><a class="text-link" href="#appointment">Залишити заявку</a></td></tr>
+                <tr><th scope="row">Вакцинація</th><td>Щодня, 08:00–21:00</td><td>За записом</td><td><a class="text-link" href="#appointment">Залишити заявку</a></td></tr>
+                <tr><th scope="row">Стоматологія</th><td>Час узгоджується</td><td>Попередня консультація</td><td><a class="text-link" href="#appointment">Залишити заявку</a></td></tr>
+                <tr><th scope="row">Термінова допомога</th><td>24/7</td><td>Попередній дзвінок</td><td><a class="text-link" href="tel:+380986329710">Зателефонувати</a></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
       <!-- Запрошення та форма запису. -->
       <section class="appointment" id="appointment" aria-labelledby="appointment-title">
         <div class="container">
           <div class="appointment__intro">
             <img
-              src="img/appointment-dog.png"
+              src="img/appointment-dog.webp"
               alt="Ветеринарка оглядає бігля на прийомі"
-              width="498"
-              height="332"
-            >
+              width="996"
+              height="664"
+             loading="lazy" decoding="async">
             <div class="appointment__message">
-              <h2>Подбаймо про здоров’я вашого<br>друга разом</h2>
+              <h2>Подбаймо про здоров’я вашого друга разом</h2>
               <p>Оберіть зручний час — адміністратор підтвердить запис і відповість на запитання.</p>
               <a class="btn" href="#booking-form">Записатися на прийом</a>
             </div>
@@ -294,33 +433,83 @@
             <div class="appointment__description">
               <h2 id="appointment-title">Запис на прийом</h2>
               <p>
-                Заповніть коротку форму — адміністратор зателефонує вам протягом 10 хвилин і погодить зручний час.
+                Заповніть навчальну форму: заявка надійде автору проєкту через Formspree.
+                Це демонстрація запису, а не бронювання в реальній клініці.
               </p>
             </div>
-            <form class="booking-form" id="booking-form" aria-labelledby="appointment-title">
-              <label class="visually-hidden" for="booking-name">Ваше ім’я</label>
-              <input
-                id="booking-name"
-                name="name"
-                type="text"
-                placeholder="Ваше ім’я"
-                autocomplete="given-name"
-                required
-              >
-              <label class="visually-hidden" for="booking-phone">Номер телефону</label>
-              <input
-                id="booking-phone"
-                name="phone"
-                type="tel"
-                placeholder="Номер телефону"
-                autocomplete="tel"
-                required
-              >
-              <label class="visually-hidden" for="booking-pet">Вид тварини</label>
-              <input id="booking-pet" name="pet" type="text" placeholder="Вид тварини" required>
-              <label class="visually-hidden" for="booking-date">Дата візиту</label>
-              <input id="booking-date" name="date" type="text" placeholder="Дата візиту" required>
-              <button class="btn" type="button">Записатися</button>
+            <form class="booking-form" id="booking-form" action="https://formspree.io/f/xnpjllab" method="post" aria-labelledby="appointment-title" aria-describedby="form-note">
+              <input type="hidden" name="_subject" value="Лапка — навчальна заявка на прийом">
+              <fieldset class="form-fields">
+                <legend>Ваші контакти</legend>
+                <div class="form-field">
+                  <label for="booking-name">Ім’я <span aria-hidden="true">*</span></label>
+                  <input id="booking-name" name="name" type="text" autocomplete="name" minlength="2" maxlength="80" placeholder="Наприклад, Олена" required>
+                </div>
+                <div class="form-field">
+                  <label for="booking-phone">Телефон <span aria-hidden="true">*</span></label>
+                  <input id="booking-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" pattern="\+?[0-9]{9,15}" placeholder="+380981234567" title="Від 9 до 15 цифр, можна почати з +." aria-describedby="phone-hint" required>
+                  <small id="phone-hint">9–15 цифр без пробілів. На початку можна вказати +.</small>
+                </div>
+                <div class="form-field form-field--full">
+                  <label for="booking-email">Електронна пошта</label>
+                  <input id="booking-email" name="email" type="email" autocomplete="email" maxlength="254" placeholder="name@example.com">
+                </div>
+              </fieldset>
+              <fieldset class="form-fields">
+                <legend>Про візит</legend>
+                <div class="form-field">
+                  <label for="booking-pet">Вид тварини <span aria-hidden="true">*</span></label>
+                  <select id="booking-pet" name="pet" required>
+                    <option value="" selected disabled>Оберіть тварину</option>
+                    <option value="dog">Собака</option>
+                    <option value="cat">Кіт</option>
+                    <option value="other">Інша тварина</option>
+                  </select>
+                </div>
+                <div class="form-field">
+                  <label for="booking-date">Бажана дата <span aria-hidden="true">*</span></label>
+                  <input id="booking-date" name="date" type="date" required>
+                </div>
+                <div class="form-field form-field--full">
+                  <label for="booking-service">Послуга <span aria-hidden="true">*</span></label>
+                  <select id="booking-service" name="service" required>
+                    <option value="" selected disabled>Оберіть напрям або пакет</option>
+                    <option>Терапія</option>
+                    <option>Хірургія</option>
+                    <option>Вакцинація</option>
+                    <option>Стоматологія</option>
+                    <option>Пакет «Знайомство»</option>
+                    <option>Пакет «Турбота»</option>
+                    <option>Пакет «Разом»</option>
+                  </select>
+                </div>
+              </fieldset>
+              <fieldset class="form-fields form-fields--choices">
+                <legend>Тип візиту</legend>
+                <label class="choice" for="visit-first">
+                  <input id="visit-first" name="visit_kind" type="radio" value="first" checked required>
+                  <span>Перший візит</span>
+                </label>
+                <label class="choice" for="visit-followup">
+                  <input id="visit-followup" name="visit_kind" type="radio" value="followup">
+                  <span>Повторний візит</span>
+                </label>
+              </fieldset>
+              <div class="form-field">
+                <label for="booking-message">Повідомлення</label>
+                <textarea id="booking-message" name="message" rows="4" maxlength="1000" placeholder="Короткий навчальний приклад звернення" aria-describedby="message-hint"></textarea>
+                <small id="message-hint">До 1000 символів. Не додавайте приватну медичну інформацію.</small>
+              </div>
+              <label class="choice" for="booking-consent">
+                <input id="booking-consent" name="consent" type="checkbox" value="yes" required>
+                <span>Погоджуюся на обробку введених даних для відповіді на навчальну заявку. <a href="#privacy">Докладніше</a>.</span>
+              </label>
+              <div class="visually-hidden" aria-hidden="true">
+                <label for="booking-gotcha">Залиште це поле порожнім</label>
+                <input id="booking-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+              </div>
+              <p class="form-note" id="form-note">Поля зі знаком * обов’язкові. Після відправлення Formspree покаже підтвердження.</p>
+              <button class="btn" type="submit">Надіслати навчальну заявку</button>
             </form>
           </div>
         </div>
@@ -363,10 +552,18 @@
             <ul>
               <li><a href="https://www.instagram.com/">Instagram</a></li>
               <li><a href="https://www.facebook.com/">Facebook</a></li>
-              <li><span>Політика конфіденційності</span></li>
+              <li><a href="https://www.youtube.com/">YouTube</a></li>
+              <li><a href="#privacy">Обробка даних</a></li>
             </ul>
           </nav>
         </div>
+        <section class="privacy" id="privacy" aria-labelledby="privacy-title" tabindex="-1">
+          <h2 id="privacy-title">Дані навчальної форми</h2>
+          <p>«Лапка» — навчальний проєкт. Ім’я, телефон і решта заповнених полів передаються через
+            <a href="https://formspree.io/legal/privacy-policy/">Formspree</a> автору проєкту лише для відповіді на заявку.
+            Згода не означає підписку на розсилку. Для видалення звернення зв’яжіться з автором через відповідь на його лист.
+            Для перевірки використовуйте вигадані дані, а не дані справжніх пацієнтів.</p>
+        </section>
       </div>
     </footer>
   </body>
