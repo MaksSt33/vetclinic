@@ -3,6 +3,7 @@
 Навчальний односторінковий сайт за макетом Figma, розроблений у межах модулів 02–08 курсу вебтехнологій.
 
 - **Сайт:** https://maksst33.github.io/vetclinic/
+- **Навчальна версія з меню через checkbox:** [GitHub Pages](https://maksst33.github.io/vetclinic/Lapka/) · [опис і перевірки](Lapka/README.md)
 - **Макет:** [Vetclinic у Figma](https://www.figma.com/design/QMHLRv3P49GmNWXlGBgmnc/Vetclinic?node-id=9-561)
 - **Методичка:** [Академія 9 DOTS — веброзробка](https://9.lviv.ua/academy/web-development/)
 - **Виконання вимог:** [чек-лист і результати перевірок](docs/checklist.md)
