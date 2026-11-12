@@ -9,6 +9,7 @@
   --booking-bg: #f7f1ef;
   --orange: #f2a45e;
   --orange-dark: #d97935;
+  --accent-text: #994c22;
   --orange-hover: #e59651;
   --red: #b94b3f;
   --white: #fff;
@@ -38,7 +39,16 @@
   --radius-field: 16px;
   --radius-panel: 24px;
   --radius-pill: 32px;
+  --radius-line: 2px;
+  --radius-small: 8px;
+  --radius-control: 12px;
+  --radius-card: 20px;
+  --radius-overlay: 22px;
+  --radius-chip: 30px;
+  --radius-photo: 38px;
+  --radius-circle: 50%;
   --error: #a6382e;
+  --shadow-invalid: inset 0 0 0 2px var(--error);
   --motion-fast: 200ms;
 }
 
@@ -144,11 +154,11 @@ textarea:focus-visible, .table-scroll:focus-visible {
   color: var(--link);
 }
 
-.text-link:hover, .menu a:hover { color: var(--orange-dark); }
+.text-link:hover, .menu a:hover { color: var(--accent-text); }
 
 .eyebrow {
   margin-bottom: var(--space-1);
-  color: var(--orange-dark);
+  color: var(--accent-text);
   text-transform: uppercase;
   font-size: 13px;
   font-weight: 800;
@@ -169,7 +179,7 @@ textarea:focus-visible, .table-scroll:focus-visible {
   justify-content: center;
   width: var(--icon-size, 42px);
   height: var(--icon-size, 42px);
-  border-radius: 50%;
+  border-radius: var(--radius-circle);
 }
 
 .logo {
@@ -235,7 +245,7 @@ textarea:focus-visible, .table-scroll:focus-visible {
   display: inline-block;
   padding: var(--space-1) var(--space-2);
   margin-bottom: 0;
-  border-radius: 30px;
+  border-radius: var(--radius-chip);
   background: var(--sage);
   color: var(--link);
   font-size: 13px;
@@ -297,7 +307,7 @@ h1 {
   gap: var(--space-1);
   padding: var(--space-2);
   min-height: 92px;
-  border-radius: 20px;
+  border-radius: var(--radius-card);
   background: var(--white);
   box-shadow: var(--shadow);
 }
@@ -327,7 +337,7 @@ h1 {
 }
 
 .hero__photo, .doctor-card img { width: 100%; object-fit: cover; }
-.hero__photo { height: 100%; border-radius: 32px; }
+.hero__photo { height: 100%; border-radius: var(--radius-pill); }
 
 .service-picker {
   position: absolute;
@@ -336,7 +346,7 @@ h1 {
   width: 280px;
   min-height: 150px;
   padding: var(--space-3);
-  border-radius: 22px;
+  border-radius: var(--radius-overlay);
   background: var(--white);
 }
 
@@ -355,7 +365,7 @@ h1 {
 .service-picker__link {
   display: block;
   padding: var(--space-1) var(--space-2);
-  border-radius: 24px;
+  border-radius: var(--radius-panel);
   background: var(--soft);
   font-size: 13px;
   line-height: 1.2;
@@ -390,7 +400,7 @@ h1 {
 }
 
 input::placeholder, select:invalid { color: var(--muted); opacity: 1; }
-input:user-invalid, select:user-invalid { box-shadow: inset 0 0 0 2px var(--error); }
+input:user-invalid, select:user-invalid { box-shadow: var(--shadow-invalid); }
 textarea { resize: vertical; }
 .quick-booking .btn, .booking-form .btn { align-self: flex-start; }
 
@@ -436,7 +446,7 @@ textarea { resize: vertical; }
   min-height: 310px;
   gap: var(--space-3);
   padding: var(--space-4);
-  border-radius: 20px;
+  border-radius: var(--radius-card);
   background: var(--white);
 }
 
@@ -462,7 +472,7 @@ textarea { resize: vertical; }
   line-height: 1.45;
 }
 
-.doctor-card img { height: 390px; border-radius: 20px; }
+.doctor-card img { height: 390px; border-radius: var(--radius-card); }
 
 .doctor-card h3 {
   margin-top: var(--space-2);
@@ -491,7 +501,7 @@ textarea { resize: vertical; }
 .review-card {
   min-height: 268px;
   padding: var(--space-4);
-  border-radius: 24px;
+  border-radius: var(--radius-panel);
   background: var(--white);
   box-shadow: var(--shadow);
 }
@@ -539,7 +549,7 @@ textarea { resize: vertical; }
   width: 498px;
   aspect-ratio: 3 / 2;
   overflow: hidden;
-  border-radius: 38px;
+  border-radius: var(--radius-photo);
 }
 
 .appointment__picture > img, .video-banner__video {
@@ -738,7 +748,7 @@ textarea { resize: vertical; }
   left: 12px;
   z-index: 100;
   padding: var(--space-2) var(--space-3);
-  border-radius: 12px;
+  border-radius: var(--radius-control);
   background: var(--green);
   color: var(--white);
   transform: translateY(-180%);
@@ -780,7 +790,7 @@ textarea { resize: vertical; }
   z-index: 10;
   width: 220px;
   padding: var(--space-2);
-  border-radius: 16px;
+  border-radius: var(--radius-field);
   background: var(--white);
   box-shadow: var(--shadow);
   visibility: hidden;
@@ -791,7 +801,7 @@ textarea { resize: vertical; }
   align-items: center;
   min-height: 44px;
   padding: var(--space-1);
-  border-radius: 8px;
+  border-radius: var(--radius-small);
 }
 
 .submenu__list a:hover, .submenu__list a:focus-visible { background: var(--sage); }
@@ -810,7 +820,7 @@ textarea { resize: vertical; }
   display: block;
   width: 20px;
   height: 2px;
-  border-radius: 2px;
+  border-radius: var(--radius-line);
   background: currentColor;
 }
 
@@ -901,7 +911,7 @@ textarea { resize: vertical; }
     padding: var(--space-3);
     overflow-y: auto;
     border: 1px solid var(--header-line);
-    border-radius: 0 0 20px 20px;
+    border-radius: 0 0 var(--radius-card) var(--radius-card);
     background: var(--cream);
     box-shadow: var(--shadow);
     visibility: hidden;
@@ -1009,7 +1019,7 @@ textarea { resize: vertical; }
   .hero__photo {
     height: auto;
     aspect-ratio: 343 / 300;
-    border-radius: 24px;
+    border-radius: var(--radius-panel);
   }
 
   .hero__picture { height: auto; }
@@ -1058,7 +1068,7 @@ textarea { resize: vertical; }
   .testimonials > .container > .eyebrow, .testimonials h2 { margin-bottom: var(--space-3); }
   .review-card { min-height: 0; padding: var(--space-3); }
   .review-card blockquote { font-size: 19px; line-height: 1.5; }
-  .appointment__picture { border-radius: 24px; }
+  .appointment__picture { border-radius: var(--radius-panel); }
   .appointment__inner { gap: var(--space-3); }
   .service-card__body { flex: 1; min-width: 0; }
   .service-card h3 { font-size: clamp(17px, 5vw, 20px); line-height: 1.2; }
