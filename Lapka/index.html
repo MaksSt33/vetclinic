@@ -216,6 +216,11 @@
                   <option>Стаціонар</option>
                 </select>
               </fieldset>
+              <div class="consent">
+                <input id="quick-consent" name="consent" type="checkbox" value="accepted" required>
+                <span><label for="quick-consent">Погоджуюся на обробку даних *</label>
+                  <a href="#privacy">Як використовуються дані</a></span>
+              </div>
               <button class="btn" type="submit">Залишити заявку</button>
             </form>
           </div>
@@ -519,9 +524,27 @@
                 <label for="booking-message">Коментар</label>
                 <textarea id="booking-message" name="message" rows="3" maxlength="500"></textarea>
               </fieldset>
+              <div class="consent">
+                <input id="booking-consent" name="consent" type="checkbox" value="accepted" required>
+                <span><label for="booking-consent">Погоджуюся на обробку даних *</label>
+                  <a href="#privacy">Як використовуються дані</a></span>
+              </div>
               <button class="btn" type="submit">Надіслати заявку на прийом</button>
             </form>
           </div>
+        </div>
+      </section>
+      <section class="section privacy" id="privacy" aria-labelledby="privacy-title" tabindex="-1">
+        <div class="container">
+          <h2 id="privacy-title">Як використовуються дані</h2>
+          <p>Це навчальний проєкт Стеціва Максима. Дані форми використовуються автором лише для
+            перевірки надсилання заявок і не передаються реальній ветеринарній клініці.
+            Для перевірки вводьте вигадані контактні дані та не додавайте конфіденційної інформації.</p>
+          <p>Після надсилання заповнені поля передаються сервісу Formspree, який обробляє заявку
+            й надсилає повідомлення автору проєкту. Ознайомтеся з
+            <a href="https://formspree.io/legal/privacy-policy/">політикою конфіденційності Formspree</a>.
+            Щодо надісланих даних або їх видалення звертайтеся до
+            <a href="https://github.com/MaksSt33">автора проєкту</a>.</p>
         </div>
       </section>
     </main>

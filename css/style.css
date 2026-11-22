@@ -333,7 +333,7 @@ h1 {
   position: relative;
   flex: 0 1 654px;
   min-width: 0;
-  height: 692px;
+  height: 760px;
 }
 
 .hero__photo, .doctor-card img { width: 100%; object-fit: cover; }
@@ -413,6 +413,23 @@ textarea { resize: vertical; }
 }
 .form-fields :is(input, select) + label { margin-top: var(--space-1); }
 .quick-booking label { margin-bottom: 0; font-size: 13px; }
+
+.consent { display: flex; align-items: flex-start; gap: var(--space-1); min-height: 44px; }
+.consent input {
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+  margin: 12px 0;
+  accent-color: var(--green);
+  cursor: pointer;
+}
+.consent span { min-width: 0; }
+.consent label { display: flex; align-items: center; min-height: 44px; cursor: pointer; }
+.consent a, .privacy a { color: var(--link); text-decoration: underline; text-underline-offset: 3px; }
+.consent a { display: inline-block; font-size: 13px; }
+.privacy { background: var(--soft); }
+.privacy h2, .privacy p + p { margin-bottom: var(--space-2); }
+.privacy h2 + p { margin-bottom: var(--space-2); }
 
 .emergency { color: var(--white); background: var(--red); }
 
@@ -960,7 +977,7 @@ textarea { resize: vertical; }
     margin: 0 auto;
   }
 
-  .hero__visual { height: 640px; }
+  .hero__visual { height: 760px; }
   .hero__description { max-width: 100%; }
   .section { padding: var(--space-8) 0; }
   .cards { flex-wrap: wrap; }
