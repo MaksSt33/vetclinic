@@ -602,6 +602,7 @@ textarea { resize: vertical; }
 .module-heading p { margin-top: var(--space-1); }
 .pricing { background: var(--soft); }
 .pricing__cards { gap: var(--space-3); }
+.pricing__cards > .price-card:nth-child(2) { order: -1; }
 .price-card {
   gap: var(--space-2);
   padding: var(--space-3);
@@ -964,6 +965,7 @@ textarea { resize: vertical; }
   .section { padding: var(--space-8) 0; }
   .cards { flex-wrap: wrap; }
   .pricing__cards { flex-direction: column; }
+  .pricing__cards > .price-card:nth-child(2) { order: 0; }
   .price-card .btn { min-height: 48px; }
   .service-card, .doctor-card { flex: 1 1 calc(50% - 12px); }
   .section-heading { align-items: flex-start; gap: var(--space-3); }
