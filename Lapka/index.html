@@ -195,6 +195,10 @@
               <h2 id="quick-title">Швидкий запис</h2>
               <p id="quick-note">Навчальна заявка через Formspree. Вводьте лише тестові дані.</p>
               <input type="hidden" name="_subject" value="Лапка — швидка навчальна заявка">
+              <div class="visually-hidden" aria-hidden="true">
+                <label for="quick-gotcha">Залиште це поле порожнім</label>
+                <input id="quick-gotcha" type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+              </div>
               <fieldset class="form-fields">
                 <legend class="visually-hidden">Дані швидкого запису</legend>
                 <label for="quick-name">Ім’я *</label>
@@ -483,6 +487,10 @@
             <form class="booking-form" id="booking-form" action="https://formspree.io/f/xnpjllab" method="post"
               aria-labelledby="appointment-title" aria-describedby="booking-note" tabindex="-1">
               <input type="hidden" name="_subject" value="Лапка — навчальна заявка на прийом">
+              <div class="visually-hidden" aria-hidden="true">
+                <label for="booking-gotcha">Залиште це поле порожнім</label>
+                <input id="booking-gotcha" type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+              </div>
               <fieldset class="form-fields">
                 <legend>Контактні дані</legend>
                 <label for="booking-name">Ваше ім’я *</label>
